@@ -1,0 +1,39 @@
+@mixin FontStyle ($size: "", $weight: "", $lineHeight: "", $color: "") {
+    @if $size != "" {
+        font-size: $size;
+    }
+    @if $weight != "" {
+        font-weight: $weight;
+    }
+    @if $lineHeight != "" {
+        line-height: $lineHeight;
+    }
+    @if $color != "" {
+        color: $color;
+    }
+}
+
+@mixin Flex($direction: "", $x_align: "", $y_align: "") {
+	display: flex;
+	@if $direction != "" {
+		flex-direction: $direction;
+	}
+	@if $x_align != "" {
+		justify-content: $x_align;
+	}
+	@if $y_align != "" {
+		align-items: $y_align;
+	}
+}
+@mixin Responsive($breakpoint) {
+	@if ($breakpoint == medium) {
+		@media only screen and (min-width: 768) {
+			@content;
+		}
+	}
+	@if ($breakpoint == large) {
+		@media only screen and (min-width: 1200px) {
+			@content;
+		}
+	}
+}

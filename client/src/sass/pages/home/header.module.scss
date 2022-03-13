@@ -1,0 +1,39 @@
+@import "../../utils/mixins";
+@import "../../utils/variables";
+.wrapper{
+    padding: 20px 0;
+    .logo__wrapper{
+        margin-bottom: 10px;
+        @include Flex("", space-between, center)
+    }
+    .logo{
+        @include FontStyle(20px, 700, "", $black);
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .dashboard__menu{
+        @include FontStyle(16px, 500, "", $black);
+    }
+    .hamburger__wrapper:hover .hamburger__icon:not(:last-child){
+        margin-bottom: 5px;
+    }
+    .hamburger__icon{
+        width: 26px;
+        height: 2px;
+        background-color: $black;
+        transition: margin .1s;
+        &:not(:last-child){
+            margin-bottom: 8px;
+        }
+    }
+    .search__bar{
+        width: 100%;
+        height: 40px;
+        border: 1px solid $lightGray;
+        border-radius: 30px;
+        padding: 0 20px;
+        &:focus{
+            outline: none;
+        }
+    }
+}

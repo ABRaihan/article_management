@@ -1,0 +1,10 @@
+@import "../../utils/mixins";
+@import "../../utils/variables";
+.wrapper{
+    .user__details{
+        text-align: center;
+    }
+    .user__title{
+        @include FontStyle(16px, 600, "", $vampireBlack)
+    }
+}

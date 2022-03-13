@@ -1,0 +1,9 @@
+@import "../utils/mixins";
+@import "../utils/variables";
+.primary__btn{
+    background-color: #6dabe4;
+    padding: 15px 39px;
+    border: none;
+    border-radius: 5px;
+    @include FontStyle(14px, 500, "", $white)
+}

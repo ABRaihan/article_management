@@ -1,0 +1,38 @@
+@import "../../utils/mixins";
+.wrapper{
+    @include Flex(column, center, center);
+    .left__col{
+        order: 2;
+        width: 100%;
+    }
+    .right__col{
+        order: 1;
+        width: 100%;
+    }
+    .login__form__img__wrapper{
+        width: 300px;
+        height: 300px;
+    }
+    .create__account__text{
+        @include FontStyle(14px, 400, "", #222);
+        text-decoration: underline;
+        text-align: center;
+    }
+    .login__title{
+        @include FontStyle(36px, 700, "", #222);
+        text-align: center;
+        margin-bottom: 32px;
+    }
+    .login__form{
+        @include Flex(column);
+        gap: 20px 0;
+    }
+    .error__msg{
+        @include FontStyle(14px, 500, "", #fe6d73);
+        margin-top: 10px;
+    }
+    .login__btn__wrapper{
+        text-align: center;
+        margin-top: 32px;
+    }
+}

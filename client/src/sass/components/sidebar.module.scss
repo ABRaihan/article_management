@@ -1,0 +1,31 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+.sidebar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 100vh;
+	background-color: $white;
+	box-shadow: -10px 0 20px -10px rgb(0 0 0 / 10%);
+	padding: 20px;
+	.close__icon__wrapper {
+		text-align: right;
+	}
+	.side__menu {
+		list-style: none;
+		padding-left: 10px;
+		margin-top: 20px;
+		@include Flex(column);
+		gap: 10px 0;
+	}
+	.menu__item__link {
+		text-decoration: none;
+		cursor: default;
+		@include FontStyle(14px, 400, "", $black);
+		transition: all 0.5s;
+	}
+	.menu__item__link:hover {
+		color: $bear !important;
+	}
+}

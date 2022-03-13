@@ -1,0 +1,29 @@
+{
+	"name": "article_management",
+	"version": "1.0.0",
+	"description": "This is a simple blog website. Where the user can read blog and also post their own blog.",
+	"main": "app.js",
+	"scripts": {
+		"nodemon": "nodemon src/app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ABRaihan/article_management.git"
+	},
+	"author": "A. B. Raihan",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ABRaihan/article_management/issues"
+	},
+	"homepage": "https://github.com/ABRaihan/article_management#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"mysql": "^2.18.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	}
+}

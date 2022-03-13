@@ -1,0 +1,12 @@
+.wrapper{
+    .input__control{
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #000;
+        height: 30px;
+        padding: 0 20px;
+        &:focus{
+            outline: none;
+        }
+    }
+}
