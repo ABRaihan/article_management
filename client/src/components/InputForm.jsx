@@ -1,5 +1,5 @@
 import style from "../sass/components/inputForm.module.scss";
-function InputForm({ type, placeholder, name, onChangeHandler }) {
+function InputForm({ type, placeholder, value, defaultValue, name, onChangeHandler }) {
 	return (
 		<div className={style.wrapper}>
 			<input
@@ -7,6 +7,8 @@ function InputForm({ type, placeholder, name, onChangeHandler }) {
 				type={type}
 				placeholder={placeholder}
 				name={name}
+				value={value}
+				defaultValue={defaultValue}
 				onChange={onChangeHandler}
 			/>
 		</div>

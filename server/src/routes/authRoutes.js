@@ -1,6 +1,5 @@
 // import files
 const router = require("express").Router();
-const sql = require("../config/dbConnection");
 const { loginHandler, signupHandler, loginUserCheckHandler } = require("../controller/authController");
 
 router.post("/login", loginHandler);

@@ -1,10 +1,43 @@
 @import "../../utils/mixins";
 @import "../../utils/variables";
 .wrapper{
+    position: relative;
+    background-color: #{$yankeesBlue}E5;
+    padding: 20px;
+    border-radius: 10px;
+    .edit__icon{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .user__heading{
+        display: inline-block;
+        @include FontStyle(18px, 700, "", $white);
+        margin-bottom: 15px;
+        border-bottom: 2px solid $white;
+    }
+    .user__info__wrapper{
+        margin-bottom: 15px;
+    }
     .user__details{
-        text-align: center;
+        color: $white;
+        @include Flex();
+        gap: 0 10px;
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
     }
     .user__title{
-        @include FontStyle(16px, 600, "", $vampireBlack)
+        @include FontStyle(16px, 600, "");
+        max-width: 100px;
+        width: 100%;
+    }
+    .no__social__link{
+        @include FontStyle(16px, 500, "", $white);
+        text-align: center;
+    }
+    .social__link{
+        @include Flex("", center, center);
+        gap: 0 15px;
     }
 }

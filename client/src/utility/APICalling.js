@@ -1,10 +1,11 @@
 const BASE_URL = "http://localhost:8080";
-export const postData = async (url, body) => {
+export const postData = async (url, body, headers) => {
 	try {
 		const response = await fetch(`${BASE_URL}${url}`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
+				...(headers && headers)
 			},
 			body: JSON.stringify(body)
 		});

@@ -46,7 +46,7 @@ function LoginForm({
 		}
 		if (
 			userInfo.email.search(
-				/\w+\d@+(?<Type1>gmail).com|\w+\d@+(?<Type2>yahoo).com/
+				/[a-zA-Z0-9]+@+(?<Type1>gmail).com|\w+\d@+(?<Type2>yahoo).com/
 			) < 0
 		) {
 			setErrorState({
@@ -144,14 +144,14 @@ function LoginForm({
 										placeholder='Email'
 										name='email'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.email}
+										value={userInfo.email || ""}
 									/>
 									<InputForm
 										type='password'
 										placeholder='Password'
 										name='password'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.password}
+										value={userInfo.password || ""}
 									/>
 								</>
 							)}
@@ -162,28 +162,28 @@ function LoginForm({
 										placeholder='Name'
 										name='name'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.name}
+										value={userInfo.name || ""}
 									/>
 									<InputForm
 										type='email'
 										placeholder='Email'
 										name='email'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.email}
+										value={userInfo.email || ""}
 									/>
 									<InputForm
 										type='password'
 										placeholder='Password'
 										name='password'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.password}
+										value={userInfo.password || ""}
 									/>
 									<InputForm
 										type='password'
 										placeholder='Confirm Password'
 										name='confirmPassword'
 										onChangeHandler={userInfoHandler}
-										value={userInfo.confirmPassword}
+										value={userInfo.confirmPassword || ""}
 									/>
 								</>
 							)}

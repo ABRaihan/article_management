@@ -46,6 +46,7 @@ module.exports = {
 						}
 					});
 					sql.query(insertQuery, [[[user.user_id, name]]]);
+					sql.query("INSERT INTO user_social_details (user_id) VALUES ?", [[[user.user_id]]]);
 				}
 			}
 		});
