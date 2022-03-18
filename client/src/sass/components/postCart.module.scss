@@ -1,0 +1,33 @@
+@import "../utils/_mixins";
+@import "../utils/_variables";
+.post__cart {
+	position: relative;
+	background-color: $white;
+	border-radius: 10px;
+	box-shadow: 3px 3px 10px $vampireBlack;
+	max-width: 320px;
+	padding: 20px;
+	.toolbars {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+        @include Flex();
+        gap: 0 10px;
+	}
+	.cart__title {
+		@include FontStyle(18px, 600, "", $black);
+		padding: 5px;
+        margin-top: 5px;
+	}
+	.cart__body {
+		background-color: $lightGray;
+		max-height: 320px;
+		padding: 10px;
+		border-radius: 5px;
+		margin: 15px 0;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}

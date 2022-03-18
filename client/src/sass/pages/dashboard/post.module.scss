@@ -1,0 +1,12 @@
+@import "../../utils/_mixins";
+.wrapper{
+    .top__bar{
+        @include Flex("", space-between, center);
+    }
+    .posts__wrapper{
+        margin-top: 30px;
+        display: grid;
+        gap: 20px 0;
+        padding-bottom: 90px;
+    }
+}

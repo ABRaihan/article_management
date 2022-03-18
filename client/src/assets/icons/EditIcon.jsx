@@ -1,4 +1,4 @@
-function EditIcon() {
+function EditIcon({ color }) {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
@@ -6,7 +6,7 @@ function EditIcon() {
 			height='24'
 			viewBox='0 0 24 24'
 			fill='none'
-			stroke='#fff'
+			stroke={color || "#fff"}
 			strokeWidth='2'
 			strokeLinecap='round'
 			strokeLinejoin='round'
