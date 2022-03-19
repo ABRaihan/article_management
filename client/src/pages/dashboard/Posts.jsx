@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EditPost from "../../components/EditPost";
 import NewPost from "../../components/NewPost";
 import PostCart from "../../components/PostCart";
 import PrimaryButton from "../../components/PrimaryButton";
@@ -7,7 +8,9 @@ import { deleteData, getData } from "../../utility/APICalling";
 import { isValidArray } from "../../utility/ValueChecker";
 function Posts() {
 	const [isNewPostShow, setIsNewPostShow] = useState(false);
+	const [isEditPostShow, setIsEditPostShow] = useState(false);
 	const [allPosts, setAllPosts] = useState([]);
+	const [editPost, setEditPost] = useState({});
 	const postDeleteHandler = async (id) => {
 		const { status } = await deleteData("/posts", { id });
 		status &&
@@ -17,11 +20,14 @@ function Posts() {
 				return [...prev];
 			});
 	};
+	const postEditHandler = (id) => {
+		setEditPost(allPosts.find(({ post_id }) => post_id === id));
+		setIsEditPostShow(true);
+	}
 	useEffect(() => {
 		(async () => {
 			const id = await localStorage.getItem("user_token");
 			const postData = await getData("/posts", { id });
-			console.log(postData);
 			setAllPosts(postData);
 		})();
 	}, []);
@@ -48,6 +54,7 @@ function Posts() {
 									null,
 									post_id
 								)}
+								editHandler={postEditHandler.bind(null, post_id)}
 							/>
 						))}
 					</div>
@@ -61,6 +68,7 @@ function Posts() {
 					setAllPosts={setAllPosts}
 				/>
 			)}
+			{isEditPostShow && <EditPost isEditPostShow={setIsEditPostShow} post={editPost} setPost={setEditPost} setAllPost={setAllPosts} />}
 		</section>
 	);
 }

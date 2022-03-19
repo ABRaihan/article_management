@@ -1,12 +1,19 @@
 import DeleteIcon from "../assets/icons/DeleteIcon";
 import EditIcon from "../assets/icons/EditIcon";
 import style from "../sass/components/postCart.module.scss";
-function PostCart({ title, body, toolbars, deleteHandler, children }) {
+function PostCart({
+	title,
+	body,
+	toolbars,
+	deleteHandler,
+	editHandler,
+	children
+}) {
 	return (
 		<div className={style.post__cart}>
 			{toolbars && (
 				<div className={style.toolbars}>
-					<span>
+					<span onClick={editHandler}>
 						<EditIcon color='#000' />
 					</span>
 					<span onClick={deleteHandler}>

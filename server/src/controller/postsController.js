@@ -40,5 +40,17 @@ module.exports = {
 				res.send({ msg: "Post Delete Successful", status: true });
 			}
 		});
+	},
+	updatePostHandler: (req, res) => {
+		const { post_id, title, post } = req.body,
+			updateQuery =
+				"UPDATE articles SET title = ?, post = ? WHERE post_id = ?";
+		sql.query(updateQuery, [title, post, post_id], (err) => {
+			if (err) {
+				res.send({ error: err.message, status: false });
+			} else {
+				res.send({ msg: "Post Update Successful", status: true });
+			}
+		});
 	}
 };
