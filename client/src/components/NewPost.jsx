@@ -61,7 +61,7 @@ function NewPost({ isNewPostShow, setAllPosts }) {
 						onChangeHandler={titleChangeHandler}
 					/>
 					<ReactQuill
-						style={{ marginTop: "15px" }}
+						style={{ marginTop: "15px", overflow: "scroll", height: "70vh" }}
 						theme='snow'
 						modules={modules}
 						value={post.article}
