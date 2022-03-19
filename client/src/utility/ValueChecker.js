@@ -5,6 +5,5 @@ export const isValidObject = obj => {
 }
 
 export const isValidArray = arr => {
-    console.log(arr)
     return Array.isArray(arr) && arr.length > 0 ? true : false;
 }

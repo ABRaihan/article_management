@@ -1,7 +1,7 @@
 import DeleteIcon from "../assets/icons/DeleteIcon";
 import EditIcon from "../assets/icons/EditIcon";
 import style from "../sass/components/postCart.module.scss";
-function PostCart({ title, body, toolbars, children }) {
+function PostCart({ title, body, toolbars, deleteHandler, children }) {
 	return (
 		<div className={style.post__cart}>
 			{toolbars && (
@@ -9,7 +9,7 @@ function PostCart({ title, body, toolbars, children }) {
 					<span>
 						<EditIcon color='#000' />
 					</span>
-					<span>
+					<span onClick={deleteHandler}>
 						<DeleteIcon />
 					</span>
 				</div>

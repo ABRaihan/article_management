@@ -15,12 +15,27 @@ export const postData = async (url, body, headers) => {
 	}
 };
 export const getData = async (url, headers) => {
-    try {
+	try {
 		const response = await fetch(`${BASE_URL}${url}`, {
 			headers: {
-                "Content-Type": "application/json;charset=utf-8",
-                ...(headers && headers)
-			},
+				"Content-Type": "application/json;charset=utf-8",
+				...(headers && headers)
+			}
+		});
+		return response.json();
+	} catch (error) {
+		console.log(error.message);
+	}
+};
+
+export const deleteData = async (url, headers) => {
+	try {
+		const response = await fetch(`${BASE_URL}${url}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json;charset=utf-8",
+				...(headers && headers)
+			}
 		});
 		return response.json();
 	} catch (error) {

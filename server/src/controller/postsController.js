@@ -3,8 +3,10 @@ const { makeId } = require("../utils/utilityFunc");
 module.exports = {
 	getPostHandler: (req, res) => {
 		const { id } = req.headers,
-			getPostQuery = `SELECT * FROM articles ${id ? "WHERE user_id = ?" : "" }`;
-		sql.query(getPostQuery,[id], (err, posts) => {
+			getPostQuery = `SELECT * FROM articles ${
+				id ? "WHERE user_id = ?" : ""
+			}`;
+		sql.query(getPostQuery, [id], (err, posts) => {
 			if (err) {
 				res.send({ error: err.message, id });
 			} else {
@@ -25,6 +27,17 @@ module.exports = {
 					status: true,
 					id: post.post_id
 				});
+			}
+		});
+	},
+	deletePostHandler: (req, res) => {
+		const { id } = req.headers,
+			deleteQuery = "DELETE FROM articles WHERE post_id = ?";
+		sql.query(deleteQuery, id, (err) => {
+			if (err) {
+				res.send({ error: err.message, status: false });
+			} else {
+				res.send({ msg: "Post Delete Successful", status: true });
 			}
 		});
 	}
