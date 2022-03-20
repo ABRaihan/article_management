@@ -10,9 +10,31 @@ module.exports = {
 			if (err) {
 				res.send({ error: err.message, id });
 			} else {
-				res.send(posts);
+				if (id) {
+					res.send(posts);
+				} else {
+					const getQuery = "SELECT art.post_id, ud.name, art.title, art.post FROM user_details as ud INNER JOIN articles as art ON ud.user_id = art.user_id";
+					sql.query(getQuery, (err, allPost) => {
+						if (err) {
+							res.send({error: err.message, status: false})
+						} else {
+							res.send(allPost);
+						}
+					})
+				}
 			}
 		});
+	},
+	getDynamicPostHandler: (req, res) => {
+		const { postId } = req.params,
+			getPost = "SELECT art.post_id, ud.name, art.title, art.post FROM user_details as ud INNER JOIN articles as art ON ud.user_id = art.user_id WHERE art.post_id = ?";
+		sql.query(getPost, postId, (err, post) => {
+			if (err) {
+				res.send({error: err.message, status: false})
+			} else {
+				res.send(...post);
+			}
+		})
 	},
 	setPostHandler: (req, res) => {
 		const { title, article, id } = req.body,

@@ -1,0 +1,25 @@
+@import "../utils/_mixins";
+.wrapper{
+    .post__wrapper{
+        display: grid;
+        justify-content: center;
+        gap: 15px 0;
+        padding-bottom: 20px;
+    }
+}
+@include Responsive(medium){
+    .wrapper{
+        .post__wrapper{
+            grid-template-columns: repeat(2, auto);
+            gap: 20px;
+        }
+    }
+}
+@include Responsive(large){
+    .wrapper{
+        .post__wrapper{
+            grid-template-columns: repeat(3, auto);
+            gap: 20px;
+        }
+    }
+}
