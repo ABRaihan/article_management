@@ -7,6 +7,7 @@ const userInfoRoutes = require("./routes/userInfoRoutes");
 const postRoutes = require("./routes/postsRoutes");
 const searchPostRoutes = require("./routes/searchPostRoutes");
 const postCommentsRoutes = require("./routes/postCommentRoutes");
+const userReactRoutes = require("./routes/userReactRoutes");
 // third party func call
 dotenv.config();
 // variables
@@ -20,9 +21,10 @@ app.use(cors());
 app.use(middleware);
 app.use("/", authRouter);
 app.use("/", userInfoRoutes);
+app.use("/", postCommentsRoutes);
+app.use("/", userReactRoutes);
 app.use("/", postRoutes);
 app.use("/", searchPostRoutes);
-app.use("/", postCommentsRoutes);
 
 app.get("/", (req, res) => {
 	res.json({ name: "A. B. Raihan" });
