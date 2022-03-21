@@ -86,12 +86,13 @@ function Post() {
 	return (
 		<section className={style.wrapper}>
 			<div className='container'>
-				<div className={style.post_wrapper}>
-					<p>{post?.title}</p>
+				<div className={style.post__wrapper}>
+					<p className={style.post__title}>{post?.title}</p>
 					<div
 						dangerouslySetInnerHTML={{
 							__html: post?.post
 						}}
+						className={style.post__body}
 					></div>
 					<div className={style.post__react}>
 						<div className={style.like__dislike}>
@@ -122,17 +123,16 @@ function Post() {
 								value={userComment.comments || ""}
 								onChangeHandler={commentsChangeHandler}
 							/>
-							<PrimaryButton
-								title='Comment'
-								submitHandler={commentSubmitHandler}
-							/>
+							<button className={style.comment__btn} onClick={commentSubmitHandler}>
+								Comment
+							</button>
 						</div>
 					</div>
 				</div>
 				<div className={style.comments__wrapper}>
 					{comments.map(({ name, comments }) => (
-						<div key={Math.random()}>
-							<p>{name}</p>
+						<div className={style.user__comment__box} key={Math.random()}>
+							<p className={style.comment__name}>{name}</p>
 							<p>{comments}</p>
 						</div>
 					))}

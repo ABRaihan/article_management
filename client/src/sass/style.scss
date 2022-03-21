@@ -2,20 +2,24 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif ;
+	font-family: "Poppins", sans-serif;
 }
-.container{
+body {
+	background-color: #f7fdff;
+}
+.container {
 	max-width: 1320px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
-a{
+a {
 	text-decoration: none;
 	color: unset;
 }
-ul{
+ul {
 	list-style: none;
 }
-.ql-container, .ql-editor{
+.ql-container,
+.ql-editor {
 	height: 320px;
 }

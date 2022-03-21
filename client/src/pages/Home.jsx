@@ -18,15 +18,19 @@ function Home() {
 				<div className={style.post__wrapper}>
 					{isValidArray(posts) &&
 						posts.map(({ post_id, name, title, post }) => (
-							<Link to={"/post/" + post_id} key={post_id}>
-								<PostCart
-									title={title}
-									body={post}
-									toolbars={false}
-								>
-									<p>Author: {name}</p>
-								</PostCart>
-							</Link>
+							<PostCart
+								key={post_id}
+								title={title}
+								body={post}
+								toolbars={false}
+							>
+								<p className={style.author}>Author: {name}</p>
+								<Link to={"/post/" + post_id}>
+									<button className={style.read__more__btn}>
+										Read More
+									</button>
+								</Link>
+							</PostCart>
 						))}
 				</div>
 			</div>

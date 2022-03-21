@@ -7,3 +7,9 @@
     border-radius: 5px;
     @include FontStyle(14px, 500, "", $white)
 }
+
+@include Responsive(large){
+    .primary__btn{
+        cursor: pointer;
+    }
+}

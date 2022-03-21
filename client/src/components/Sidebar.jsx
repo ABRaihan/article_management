@@ -6,7 +6,7 @@ function Sidebar({ setSidebarState }) {
 	const navigate = useNavigate();
 	const sidebarMenu = [
 		{ name: "Home", path: "/" },
-		{ name: "Dashboard", path: "/dashboard" },
+		{ name: "Dashboard", path: "/profile" },
 		{ name: "Login", path: "/login" }
 	];
 	const closeSidebarHandler = () => {
@@ -14,10 +14,10 @@ function Sidebar({ setSidebarState }) {
 	};
 	const privateRouteHandler = async (path, event) => {
 		const logged = await isLoggedUser();
-		if (path === "/dashboard") {
+		if (path === "/profile") {
 			logged || navigate("/login");
 		} else if (path === "/login") {
-			logged && navigate("/dashboard");
+			logged && navigate("/profile");
 		}
 		setSidebarState(false);
 	};

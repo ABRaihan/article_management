@@ -24,3 +24,10 @@
         top: 10px;
     }
 }
+@include Responsive(large){
+    .wrapper{
+        .close__icon{
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@import "../../utils/_mixins";
+@import "../../utils/_variables";
+.wrapper {
+	.top__bar {
+		@include Flex("", space-between, center);
+	}
+	.title {
+		@include FontStyle(22px, 600);
+	}
+	.posts__wrapper {
+		margin-top: 30px;
+		display: grid;
+        justify-content: center;
+		gap: 25px;
+		padding-bottom: 90px;
+	}
+	.read__btn__wrapper {
+		margin-top: 25px;
+		display: block;
+	}
+	.read__more__btn {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		border: none;
+		padding: 5px 15px;
+		background-color: $yankeesBlue;
+		@include FontStyle(16px, 500, "", $white);
+		border-radius: 10px 0 10px 0;
+	}
+}
+@include Responsive(medium) {
+	.wrapper {
+		.posts__wrapper {
+			grid-template-columns: auto auto;
+		}
+	}
+}
+@include Responsive(large) {
+	.wrapper {
+		.posts__wrapper {
+			grid-template-columns: auto auto auto;
+		}
+        .read__more__btn{
+            cursor: pointer;
+        }
+	}
+}

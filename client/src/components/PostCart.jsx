@@ -13,10 +13,16 @@ function PostCart({
 		<div className={style.post__cart}>
 			{toolbars && (
 				<div className={style.toolbars}>
-					<span onClick={editHandler}>
+					<span
+						onClick={editHandler}
+						className={style.toolbars__icon}
+					>
 						<EditIcon color='#000' />
 					</span>
-					<span onClick={deleteHandler}>
+					<span
+						onClick={deleteHandler}
+						className={style.toolbars__icon}
+					>
 						<DeleteIcon />
 					</span>
 				</div>

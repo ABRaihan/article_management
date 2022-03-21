@@ -104,7 +104,7 @@ function LoginForm({
 		}
 		if (loginState === "signIn" && status) {
 			localStorage.setItem("user_token", response._id);
-			navigate("/dashboard");
+			navigate("/profile");
 		} else if (loginState === "signUp" && status) {
 			loginStateChange("signIn");
 		}
@@ -113,7 +113,7 @@ function LoginForm({
 		(async () => {
 			const loggedStatus = await isLoggedUser();
 			if (loggedStatus) {
-				navigate("/dashboard");
+				navigate("/profile");
 			} else {
 				setLoggedUser(true);
 			}
