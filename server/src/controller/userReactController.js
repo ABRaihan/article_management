@@ -2,7 +2,19 @@ const sql = require("../config/dbConnection");
 const { isEmptyArray } = require("../utils/validationFunc");
 module.exports = {
 	getUserReactHandler: (req, res) => {
-		res.send("ok");
+		const { user_id, post_id } = req.headers,
+			getReactQuery = "SELECT likes, dislike FROM user_reaction WHERE user_id = ? AND post_id = ?";
+		sql.query(getReactQuery, [user_id, post_id], (err, react) => {
+			if (err) {
+				res.send({error: err.message, status: false})
+			} else {
+				react = {
+					likes: Boolean(react[0]?.likes),
+					dislike: Boolean(react[0]?.dislike)
+				}
+				res.send(react);
+			}
+		})
 	},
 	setUserReactHandler: (req, res) => {
 		const { user_id, post_id, likes, dislike } = req.body,

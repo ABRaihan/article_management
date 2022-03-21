@@ -1,0 +1,20 @@
+@import "../utils/_mixins";
+@import "../utils/_variables";
+.wrapper {
+    .like__dislike{
+        @include Flex();
+        gap: 0 10px;
+    }
+	.like__btn,
+	.dislike__btn {
+		border: 1px solid $yankeesBlue;
+        padding: 5px 15px;
+        border-radius: 3px;
+        background: none;
+        @include FontStyle(16px, 600)
+	}
+    .react__active{
+        background-color: $yankeesBlue;
+        color: $white;
+    }
+}
