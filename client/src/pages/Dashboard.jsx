@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { isLoggedUser } from "../utility/AuthChecker";
 import DashboardMenu from "./dashboard/DashboardMenu";
 import style from "../sass/pages/dashboard.module.scss";
@@ -7,8 +7,8 @@ import Profile from "./dashboard/Profile";
 import Posts from "./dashboard/Posts";
 function Dashboard() {
 	const navigate = useNavigate();
+	const {pathname} = useLocation();
 	const [loggedUser, setLoggedUser] = useState(false);
-	const [menuState, setMenuState] = useState("profile");
 	useEffect(() => {
 		(async () => {
 			const loggedStatus = await isLoggedUser();
@@ -25,10 +25,10 @@ function Dashboard() {
 			{loggedUser && (
 				<section className={style.wrapper}>
 					<div className='container'>
-						<DashboardMenu setMenuState={setMenuState} />
+						<DashboardMenu />
 						<div>
-							{menuState === "profile" && <Profile />}
-							{menuState === "posts" && <Posts />}
+							{pathname === "/profile" && <Profile />}
+							{pathname === "/posts" && <Posts />}
 						</div>
 					</div>
 				</section>

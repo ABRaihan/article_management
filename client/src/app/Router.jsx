@@ -11,7 +11,8 @@ function Router() {
 			<Routes>
 				<Route exact path='/' element={<Home />} />
 				<Route exact path='/login' element={<Login />} />
-				<Route exact path='/dashboard' element={<Dashboard />} />
+				<Route exact path='/profile' element={<Dashboard />} />
+				<Route exact path='/posts' element={<Dashboard />} />
 				<Route exact path='/post/:id' element={<Post />} />
 			</Routes>
 		</BrowserRouter>

@@ -35,14 +35,6 @@ function Header() {
 							<Link to='/'>
 								<p className={style.logo}>Articles</p>
 							</Link>
-							<div
-								className={style.hamburger__wrapper}
-								onClick={sidebarShowHandler}
-							>
-								<div className={style.hamburger__icon}></div>
-								<div className={style.hamburger__icon}></div>
-								<div className={style.hamburger__icon}></div>
-							</div>
 						</div>
 						<div className={style.search__bar__wrapper}>
 							<input
@@ -52,7 +44,19 @@ function Header() {
 								value={searchValue}
 								onChange={postSearchHandler}
 							/>
-							<SearchItems items={posts} setItems={setPosts} setSearchValue={setSearchValue} />
+							<SearchItems
+								items={posts}
+								setItems={setPosts}
+								setSearchValue={setSearchValue}
+							/>
+						</div>
+						<div
+							className={style.hamburger__wrapper}
+							onClick={sidebarShowHandler}
+						>
+							<div className={style.hamburger__icon}></div>
+							<div className={style.hamburger__icon}></div>
+							<div className={style.hamburger__icon}></div>
 						</div>
 					</nav>
 				</div>

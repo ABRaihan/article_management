@@ -19,6 +19,7 @@ function Sidebar({ setSidebarState }) {
 		} else if (path === "/login") {
 			logged && navigate("/dashboard");
 		}
+		setSidebarState(false);
 	};
 	return (
 		<aside className={style.sidebar}>

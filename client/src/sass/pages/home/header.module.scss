@@ -1,42 +1,72 @@
 @import "../../utils/mixins";
 @import "../../utils/variables";
-.wrapper{
-    padding: 20px 0;
-    .logo__wrapper{
-        margin-bottom: 10px;
-        @include Flex("", space-between, center)
+.wrapper {
+	padding: 20px 0;
+	.navigation__wrapper {
+		@include Flex("", space-between, center);
+        flex-wrap: wrap;
+        gap: 15px;
+	}
+	.logo__wrapper {
+        width: 80%;
+	}
+	.logo {
+		@include FontStyle(20px, 700, "", $black);
+		text-transform: uppercase;
+	}
+    .hamburger__wrapper{
+        width: 10%;
     }
-    .logo{
-        @include FontStyle(20px, 700, "", $black);
-        text-transform: uppercase;
-        text-align: center;
-    }
-    .dashboard__menu{
-        @include FontStyle(16px, 500, "", $black);
-    }
-    .hamburger__wrapper:hover .hamburger__icon:not(:last-child){
-        margin-bottom: 5px;
-    }
-    .hamburger__icon{
-        width: 26px;
-        height: 2px;
-        background-color: $black;
-        transition: margin .1s;
-        &:not(:last-child){
-            margin-bottom: 8px;
-        }
-    }
-    .search__bar__wrapper{
-        position: relative;
-    }
-    .search__bar{
+	.hamburger__wrapper:hover .hamburger__icon:not(:last-child) {
+		margin-bottom: 5px;
+	}
+	.hamburger__icon {
+		width: 26px;
+		height: 2px;
+		background-color: $black;
+		transition: margin 0.1s;
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+	}
+	.search__bar__wrapper {
+		position: relative;
+        order: 2;
         width: 100%;
-        height: 40px;
-        border: 1px solid $lightGray;
-        border-radius: 30px;
-        padding: 0 20px;
-        &:focus{
-            outline: none;
+	}
+	.search__bar {
+		width: 100%;
+		height: 40px;
+		border: 1px solid $lightGray;
+		border-radius: 30px;
+		padding: 0 20px;
+		&:focus {
+			outline: none;
+		}
+	}
+}
+@include Responsive(medium) {
+	.wrapper {
+        .navigation__wrapper{
+            flex-wrap: nowrap;
+            gap: 0;
+        }
+        .logo__wrapper {
+            width: auto;
+        }
+        .hamburger__wrapper{
+            width: auto;
+        }
+        .search__bar__wrapper{
+            order: 0;
+            max-width: 400px;
+        }
+	}
+}
+@include Responsive(large){
+    .wrapper{
+        .hamburger__wrapper{
+            cursor: pointer;
         }
     }
 }
