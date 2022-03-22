@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { getData, postData } from "../utility/APICalling";
 import style from "../sass/pages/post.module.scss";
 import InputForm from "../components/InputForm";
-import PrimaryButton from "../components/PrimaryButton";
 import { isLoggedUser } from "../utility/AuthChecker";
 
 function Post() {

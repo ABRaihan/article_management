@@ -13,6 +13,10 @@
     .post__body{
         margin-bottom: 25px;
     }
+    .post__body img{
+        width: 100%;
+        height: 100%;
+    }
     .like__dislike{
         @include Flex("", center);
         gap: 0 10px;
