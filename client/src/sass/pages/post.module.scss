@@ -1,62 +1,77 @@
 @import "../utils/_mixins";
 @import "../utils/_variables";
 .wrapper {
-    margin-top: 15px;
-    .post__wrapper{
-        @include Flex(column, "", center);
-    }
-    .post__title{
-        @include FontStyle(22px, 600);
-        margin-bottom: 15px;
-        border-bottom: 2px solid #000;
-    }
-    .post__body{
-        margin-bottom: 25px;
-    }
-    .post__body img{
-        width: 100%;
-        height: 100%;
-    }
-    .like__dislike{
-        @include Flex("", center);
-        gap: 0 10px;
-    }
+	margin-top: 15px;
+	.post__wrapper {
+		@include Flex(column, "", center);
+	}
+	.post__title {
+		@include FontStyle(22px, 600);
+		margin-bottom: 15px;
+		border-bottom: 2px solid #000;
+	}
+	.post__body {
+		margin-bottom: 25px;
+	}
+	.post__body img {
+		width: 100%;
+		height: 100%;
+	}
+	.like__dislike {
+		@include Flex("", center);
+		gap: 0 10px;
+	}
 	.like__btn,
 	.dislike__btn {
 		border: 1px solid $yankeesBlue;
-        padding: 5px 15px;
-        border-radius: 3px;
-        background: none;
-        @include FontStyle(16px, 600)
+		padding: 5px 15px;
+		border-radius: 3px;
+		background: none;
+		@include FontStyle(16px, 600);
 	}
-    .react__active{
-        background-color: $yankeesBlue;
-        color: $white;
-    }
-    .comment__box{
-        margin: 25px 0;
-        @include Flex();
-        gap: 15px;
-    }
-    .comment__btn{
-        border: none;
-        padding: 5px 15px;
-        background-color: $yankeesBlue;
-        @include FontStyle(16px, 600, "", $white);
-        border-radius: 5px;
-    }
-    .comments__wrapper{
-        @include Flex(column, center, center);
-        gap: 20px;
-    }
-    .user__comment__box{
-	background-color: $white;
-	padding: 5px 15px;
-    min-width: 220px;
-	border-radius: 10px;
-	box-shadow: 3px 3px 10px #dae2e6;
-    }
-    .comment__name{
-        @include FontStyle(16px, 600)
-    }
+	.react__active {
+		background-color: $yankeesBlue;
+		color: $white;
+	}
+	.comment__box {
+		margin-top: 25px;
+		@include Flex();
+		gap: 15px;
+	}
+	.comment__btn {
+		border: none;
+		padding: 5px 15px;
+		background-color: $yankeesBlue;
+		@include FontStyle(16px, 600, "", $white);
+		border-radius: 5px;
+	}
+	.error__msg {
+		@include FontStyle(14px, 500, "", #fe6d73);
+		margin-top: 10px;
+        text-align: center;
+	}
+	.comments__wrapper {
+		@include Flex(column, center, center);
+		gap: 20px;
+        margin-top: 25px;
+	}
+	.user__comment__box {
+		background-color: $white;
+		padding: 5px 15px;
+		min-width: 220px;
+		border-radius: 10px;
+		box-shadow: 3px 3px 10px #dae2e6;
+	}
+	.comment__name {
+		@include FontStyle(16px, 600);
+	}
+}
+@include Responsive(large) {
+	.wrapper {
+		.like__btn,
+		.dislike__btn,
+		.comment__btn {
+			cursor: pointer;
+		}
+	}
 }

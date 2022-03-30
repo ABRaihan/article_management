@@ -30,9 +30,13 @@
 		color: $bear !important;
 	}
 }
-@include Responsive(large){
-	.sidebar{
-		.close__icon__wrapper svg{
+@include Responsive(large) {
+	.sidebar {
+		width: 360px;
+		.close__icon__wrapper svg {
+			cursor: pointer;
+		}
+		.menu__item__link {
 			cursor: pointer;
 		}
 	}

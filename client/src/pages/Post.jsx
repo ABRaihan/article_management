@@ -10,6 +10,7 @@ function Post() {
 	const [comments, setComments] = useState([]);
 	const [userComment, setUserComment] = useState({});
 	const [userReact, setUserReact] = useState({});
+	const [errorState, setErrorState] = useState({ status: false, msg: "" });
 	const { id } = useParams();
 	const commentsChangeHandler = (event) => {
 		setUserComment((prev) => ({
@@ -19,7 +20,7 @@ function Post() {
 	};
 	const commentSubmitHandler = async () => {
 		const logged = await isLoggedUser();
-		if (logged) {
+		if (logged && userComment.comments) {
 			const user_id = await localStorage.getItem("user_token");
 			const commentRes = await postData("/post/comments", {
 				user_id,
@@ -31,7 +32,12 @@ function Post() {
 				setComments(commentData);
 				setUserComment({});
 			}
-		} else {
+		} else if (!userComment.comments) {
+			setErrorState({ status: true, msg: "Comment is empty" });
+			setTimeout(() => {
+				setErrorState({ status: false, msg: "" });
+			}, 1000);
+		} else if (!logged) {
 			alert("Please Login For Comments");
 		}
 	};
@@ -122,15 +128,24 @@ function Post() {
 								value={userComment.comments || ""}
 								onChangeHandler={commentsChangeHandler}
 							/>
-							<button className={style.comment__btn} onClick={commentSubmitHandler}>
+							<button
+								className={style.comment__btn}
+								onClick={commentSubmitHandler}
+							>
 								Comment
 							</button>
 						</div>
+						{errorState.status && (
+							<p className={style.error__msg}>{errorState.msg}</p>
+						)}
 					</div>
 				</div>
 				<div className={style.comments__wrapper}>
 					{comments.map(({ name, comments }) => (
-						<div className={style.user__comment__box} key={Math.random()}>
+						<div
+							className={style.user__comment__box}
+							key={Math.random()}
+						>
 							<p className={style.comment__name}>{name}</p>
 							<p>{comments}</p>
 						</div>
